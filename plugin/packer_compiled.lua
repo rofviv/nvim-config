@@ -109,6 +109,16 @@ _G.packer_plugins = {
     path = "/Users/rofviv/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["dart-vim-plugin"] = {
+    loaded = true,
+    path = "/Users/rofviv/.local/share/nvim/site/pack/packer/start/dart-vim-plugin",
+    url = "https://github.com/dart-lang/dart-vim-plugin"
+  },
+  ["dartlang-snippets"] = {
+    loaded = true,
+    path = "/Users/rofviv/.local/share/nvim/site/pack/packer/start/dartlang-snippets",
+    url = "https://github.com/natebosch/dartlang-snippets"
+  },
   ["flutter-tools.nvim"] = {
     loaded = true,
     path = "/Users/rofviv/.local/share/nvim/site/pack/packer/start/flutter-tools.nvim",
@@ -169,10 +179,25 @@ _G.packer_plugins = {
     path = "/Users/rofviv/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
+  ["nvim-dap"] = {
+    loaded = true,
+    path = "/Users/rofviv/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
+  },
+  ["nvim-dap-ui"] = {
+    loaded = true,
+    path = "/Users/rofviv/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
+    url = "https://github.com/rcarriga/nvim-dap-ui"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/Users/rofviv/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-notify"] = {
+    loaded = true,
+    path = "/Users/rofviv/.local/share/nvim/site/pack/packer/start/nvim-notify",
+    url = "https://github.com/rcarriga/nvim-notify"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
@@ -206,6 +231,11 @@ _G.packer_plugins = {
     path = "/Users/rofviv/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  rainbow = {
+    loaded = true,
+    path = "/Users/rofviv/.local/share/nvim/site/pack/packer/start/rainbow",
+    url = "https://github.com/luochen1990/rainbow"
+  },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
     path = "/Users/rofviv/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
@@ -221,6 +251,21 @@ _G.packer_plugins = {
     path = "/Users/rofviv/.local/share/nvim/site/pack/packer/start/typescript.nvim",
     url = "https://github.com/jose-elias-alvarez/typescript.nvim"
   },
+  ultisnips = {
+    loaded = true,
+    path = "/Users/rofviv/.local/share/nvim/site/pack/packer/start/ultisnips",
+    url = "https://github.com/SirVer/ultisnips"
+  },
+  ["vim-lsc"] = {
+    loaded = true,
+    path = "/Users/rofviv/.local/share/nvim/site/pack/packer/start/vim-lsc",
+    url = "https://github.com/natebosch/vim-lsc"
+  },
+  ["vim-lsc-dart"] = {
+    loaded = true,
+    path = "/Users/rofviv/.local/share/nvim/site/pack/packer/start/vim-lsc-dart",
+    url = "https://github.com/natebosch/vim-lsc-dart"
+  },
   ["vim-maximizer"] = {
     loaded = true,
     path = "/Users/rofviv/.local/share/nvim/site/pack/packer/start/vim-maximizer",
@@ -231,6 +276,11 @@ _G.packer_plugins = {
     path = "/Users/rofviv/.local/share/nvim/site/pack/packer/start/vim-nightfly-guicolors",
     url = "https://github.com/bluz71/vim-nightfly-guicolors"
   },
+  ["vim-snippets"] = {
+    loaded = true,
+    path = "/Users/rofviv/.local/share/nvim/site/pack/packer/start/vim-snippets",
+    url = "https://github.com/honza/vim-snippets"
+  },
   ["vim-surround"] = {
     loaded = true,
     path = "/Users/rofviv/.local/share/nvim/site/pack/packer/start/vim-surround",
@@ -240,6 +290,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/rofviv/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
     url = "https://github.com/christoomey/vim-tmux-navigator"
+  },
+  ["vim-visual-multi"] = {
+    loaded = true,
+    path = "/Users/rofviv/.local/share/nvim/site/pack/packer/start/vim-visual-multi",
+    url = "https://github.com/mg979/vim-visual-multi"
   }
 }
 

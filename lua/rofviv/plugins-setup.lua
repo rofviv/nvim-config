@@ -98,6 +98,29 @@ return packer.startup(function(use)
 	-- flutter tools
 	use({ "akinsho/flutter-tools.nvim", requires = "nvim-lua/plenary.nvim" })
 
+	-- dart tools
+	use("dart-lang/dart-vim-plugin")
+	use("natebosch/vim-lsc")
+	use("natebosch/vim-lsc-dart")
+
+	-- dart snippets
+	use("SirVer/ultisnips")
+	use("natebosch/dartlang-snippets")
+	use("honza/vim-snippets")
+
+	-- debugger dart flutter
+	use("mfussenegger/nvim-dap")
+	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+
+	-- notify plugin
+	use("rcarriga/nvim-notify")
+
+	-- color brackets
+	use("luochen1990/rainbow")
+
+	-- multicursor
+	use({ "mg979/vim-visual-multi", { branch = "master" } })
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end

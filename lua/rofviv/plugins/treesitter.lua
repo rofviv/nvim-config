@@ -6,6 +6,15 @@ end
 
 -- configure treesitter
 treesitter.setup({
+	rainbow = {
+		enable = true,
+		colors = {
+			"#2c2c2c",
+			"#ffffff",
+			"#000000",
+			"#ff0000",
+		},
+	},
 	-- enable syntax highlighting
 	highlight = {
 		enable = true,
@@ -19,19 +28,22 @@ treesitter.setup({
 		"json",
 		"javascript",
 		"typescript",
-		"tsx",
+		-- "tsx",
 		"yaml",
 		"html",
 		"css",
 		"markdown",
-		"svelte",
-		"graphql",
+		-- "svelte",
+		-- "graphql",
 		"bash",
 		"lua",
 		"vim",
 		"dockerfile",
 		"gitignore",
 		"php",
+		"dart",
+		"go",
+		"vue",
 	},
 	-- auto install above language parsers
 	auto_install = true,
