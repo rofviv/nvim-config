@@ -36,18 +36,16 @@ keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>") -- find string in 
 keymap.set("n", "<leader>fs", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
+
 -- telescope git commands (not on youtube nvim video)
 keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- list all git commits (use <cr> to checkout) ["gc" for git commits]
 keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>") -- list git commits for current file/buffer (use <cr> to checkout) ["gfc" for git file commits]
 keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>") -- list git branches (use <cr> to checkout) ["gb" for git branch]
 keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current changes per file with diff preview ["gs" for git status]
+
 --telescope flutter
 keymap.set("n", "<leader>fc", "<cmd>Telescope flutter commands<cr>") -- open comands flutter
 
--- flutter commands
-keymap.set("n", "<leader>K", "<cmd>lua vim.lsp.buf.hover()<cr>") -- open comands flutter
-keymap.set("n", "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<cr>") -- open comands flutter
-keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>") -- open comands flutter
-
 -- dap
 keymap.set("n", "<leader>B", "<cmd>lua require'dap'.toggle_breakpoint()<CR>")
+keymap.set("n", "<leader>C", "<cmd>lua require'dap'.continue()<CR>")

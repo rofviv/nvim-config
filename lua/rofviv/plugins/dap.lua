@@ -3,8 +3,8 @@ if not setup then
 	return
 end
 
-vim.fn.sign_define("DapBreakpoint", { text = "B", texthl = "", linehl = "", numhl = "" })
-vim.fn.sign_define("DapStopped", { text = "S", texthl = "", linehl = "", numhl = "" })
+vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "", linehl = "", numhl = "" })
+vim.fn.sign_define("DapStopped", { text = "🚩", texthl = "", linehl = "", numhl = "" })
 
 dap.adapters.dart = {
 	type = "executable",

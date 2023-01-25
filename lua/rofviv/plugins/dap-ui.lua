@@ -3,8 +3,6 @@ if not setup then
 	return
 end
 
-vim.fn.sign_define("DapBreakpoint", { text = "🛑", texthl = "", linehl = "", numhl = "" })
-
 dapui.setup({
 	icons = { expanded = "", collapsed = "", current_frame = "" },
 	mappings = {

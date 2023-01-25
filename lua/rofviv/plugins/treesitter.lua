@@ -8,12 +8,14 @@ end
 treesitter.setup({
 	rainbow = {
 		enable = true,
-		colors = {
-			"#2c2c2c",
-			"#ffffff",
-			"#000000",
-			"#ff0000",
-		},
+		-- colors = {
+		-- 	"#2c2c2c",
+		-- 	"#ffffff",
+		-- 	"#000000",
+		-- 	"#ff0000",
+		-- },
+		extended_mode = true,
+		max_file_lines = nil,
 	},
 	-- enable syntax highlighting
 	highlight = {

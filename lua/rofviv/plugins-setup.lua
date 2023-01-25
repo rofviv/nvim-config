@@ -115,11 +115,11 @@ return packer.startup(function(use)
 	-- notify plugin
 	use("rcarriga/nvim-notify")
 
-	-- color brackets
-	use("luochen1990/rainbow")
-
 	-- multicursor
 	use({ "mg979/vim-visual-multi", { branch = "master" } })
+
+	-- rainbow
+	use("p00f/nvim-ts-rainbow")
 
 	if packer_bootstrap then
 		require("packer").sync()
