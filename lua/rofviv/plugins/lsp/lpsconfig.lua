@@ -23,10 +23,17 @@ end
 
 local keymap = vim.keymap -- for conciseness
 
+local opts = { noremap = true, silent = true }
+keymap.set("n", "<space>d", vim.diagnostic.open_float, opts)
+keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+keymap.set("n", "<space>l", vim.diagnostic.setloclist, opts)
+keymap.set("n", "<space>lx", vim.diagnostic.setqflist, opts)
+
 -- enable keybinds only for when lsp server available
 local on_attach = function(client, bufnr)
 	-- keybind options
-	-- vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 	-- Mapping
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
@@ -101,6 +108,10 @@ lspconfig["intelephense"].setup({
 	filetypes = { "php" },
 })
 
+lspconfig["gopls"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
 -- configure php
 -- lspconfig["phpactor"].setup({
 -- 	capabilities = capabilities,
@@ -148,7 +159,7 @@ flutter.setup({
 			-- set to true to be able use the 'flutter_tools_decorations.device' in your statusline
 			-- this will show the currently running device if an application was started with a specific
 			-- device
-			device = false,
+			device = true,
 		},
 	},
 	debugger = { -- integrate with nvim dap + install dart code debugger
@@ -171,8 +182,8 @@ flutter.setup({
 	},
 	closing_tags = {
 		-- highlight = "ErrorMsg", -- highlight for the closing tag
-		highlight = "DarkGray", -- highlight for the closing tag
-		prefix = " -> ", -- character to use for close tag e.g. > Widget
+		highlight = "EndOfBuffer", -- highlight for the closing tag
+		prefix = " // ", -- character to use for close tag e.g. > Widget
 		enabled = true, -- set to false to disable
 	},
 	dev_log = {

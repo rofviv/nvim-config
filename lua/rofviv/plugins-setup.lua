@@ -41,11 +41,16 @@ return packer.startup(function(use)
 	-- commenting with gc
 	use("numtoStr/Comment.nvim")
 
-	-- file explorer
-	use("nvim-tree/nvim-tree.lua")
-
 	-- icons
-	use("kyazdani42/nvim-web-devicons")
+	-- use("kyazdani42/nvim-web-devicons")
+
+	-- file explorer
+	use({
+		"nvim-tree/nvim-tree.lua",
+		requires = {
+			"nvim-tree/nvim-web-devicons", -- optional, for file icons
+		},
+	})
 
 	-- statusline
 	use("nvim-lualine/lualine.nvim")
