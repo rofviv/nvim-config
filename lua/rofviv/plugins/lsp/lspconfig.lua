@@ -36,12 +36,14 @@ local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 	-- Mapping
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
+	keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", bufopts)
 	keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 	keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
 	keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
 	keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
 	keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
 	keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, bufopts)
+	keymap.set("n", "<space>o", "<cmd>Lspsaga outline<CR>", bufopts)
 	keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
 	keymap.set("n", "<space>wl", function()
 		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
@@ -122,6 +124,12 @@ lspconfig["gopls"].setup({
 
 -- configure tailwindcss server
 lspconfig["tailwindcss"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+-- configure vue server
+lspconfig["volar"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })

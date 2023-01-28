@@ -55,6 +55,7 @@ keymap.set("n", "<leader>C", "<cmd>lua require'dap'.continue()<CR>")
 keymap.set("n", "<leader>gor", "<cmd>GoRun<cr>")
 keymap.set("n", "<leader>gof", "<cmd>GoFmt<cr>")
 
+keymap.set({ "n", "t" }, "<C-.>", "<cmd>Lspsaga term_toggle<CR>")
 -- toggleterm
-keymap.set("n", "<leader>t", "<cmd>ToggleTerm<cr>")
-keymap.set("t", "<esc>", "<cmd>ToggleTerm<cr>")
+-- keymap.set("n", "<leader>t", "<cmd>ToggleTerm<cr>")
+-- keymap.set("t", "<esc>", "<cmd>ToggleTerm<cr>")
