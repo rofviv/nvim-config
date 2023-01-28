@@ -11,10 +11,10 @@ if not cmp_nvim_lsp_status then
 end
 
 -- import typescript plugin safely
--- local typescript_setup, typescript = pcall(require, "typescript")
--- if not typescript_setup then
--- 	return
--- end
+local typescript_setup, typescript = pcall(require, "typescript")
+if not typescript_setup then
+	return
+end
 
 local setup, flutter = pcall(require, "flutter-tools")
 if not setup then
@@ -53,6 +53,13 @@ local on_attach = function(client, bufnr)
 	keymap.set("n", "<space>f", function()
 		vim.lsp.buf.format({ async = true })
 	end, bufopts)
+
+	-- typescript specific keymaps (e.g. rename file and update imports)
+	if client.name == "tsserver" then
+		keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>") -- rename file and update imports
+		keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>") -- organize imports (not in youtube nvim video)
+		keymap.set("n", "<leader>ru", ":TypescriptRemoveUnused<CR>") -- remove unused variables (not in youtube nvim video)
+	end
 end
 
 -- used to enable autocompletion (assign to every lsp server config)
@@ -60,7 +67,7 @@ local capabilities = cmp_nvim_lsp.default_capabilities()
 
 -- Change the Diagnostic symbols in the sign column (gutter)
 -- (not in youtube nvim video)
-local signs = { Error = " ", Warn = " ", Hint = "ﴞ ", Info = " " }
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
@@ -73,12 +80,12 @@ lspconfig["html"].setup({
 })
 
 -- configure typescript server with plugin
--- typescript.setup({
--- 	server = {
--- 		capabilities = capabilities,
--- 		on_attach = on_attach,
--- 	},
--- })
+typescript.setup({
+	server = {
+		capabilities = capabilities,
+		on_attach = on_attach,
+	},
+})
 
 -- configure python
 lspconfig["pyright"].setup({
@@ -112,12 +119,12 @@ lspconfig["gopls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
--- configure php
--- lspconfig["phpactor"].setup({
--- 	capabilities = capabilities,
--- 	on_attach = on_attach,
--- 	filetypes = { "php" },
--- })
+
+-- configure tailwindcss server
+lspconfig["tailwindcss"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
 
 -- configure lua server (with special settings)
 lspconfig["sumneko_lua"].setup({

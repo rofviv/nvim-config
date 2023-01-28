@@ -121,10 +121,16 @@ return packer.startup(function(use)
 	use("rcarriga/nvim-notify")
 
 	-- multicursor
-	use({ "mg979/vim-visual-multi", { branch = "master" } })
+	use("mg979/vim-visual-multi")
 
 	-- rainbow
 	use("p00f/nvim-ts-rainbow")
+
+	-- golang
+	use("fatih/vim-go")
+
+	-- terminal
+	use("akinsho/toggleterm.nvim")
 
 	if packer_bootstrap then
 		require("packer").sync()

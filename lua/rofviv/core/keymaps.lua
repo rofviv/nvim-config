@@ -50,3 +50,11 @@ keymap.set("n", "<leader>fc", "<cmd>Telescope flutter commands<cr>") -- open com
 -- dap
 keymap.set("n", "<leader>B", "<cmd>lua require'dap'.toggle_breakpoint()<CR>")
 keymap.set("n", "<leader>C", "<cmd>lua require'dap'.continue()<CR>")
+
+-- golang
+keymap.set("n", "<leader>gor", "<cmd>GoRun<cr>")
+keymap.set("n", "<leader>gof", "<cmd>GoFmt<cr>")
+
+-- toggleterm
+keymap.set("n", "<leader>t", "<cmd>ToggleTerm<cr>")
+keymap.set("t", "<esc>", "<cmd>ToggleTerm<cr>")
