@@ -24,35 +24,43 @@ end
 local keymap = vim.keymap -- for conciseness
 
 local opts = { noremap = true, silent = true }
-keymap.set("n", "<space>d", vim.diagnostic.open_float, opts)
-keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
-keymap.set("n", "<space>l", vim.diagnostic.setloclist, opts)
-keymap.set("n", "<space>lx", vim.diagnostic.setqflist, opts)
+keymap.set("n", "<space>d", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
+keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
+keymap.set("n", "<space>ld", vim.diagnostic.setloclist, opts)
+keymap.set("n", "<space>lda", vim.diagnostic.setqflist, opts)
+keymap.set("n", "[D", function()
+	require("lspsaga.diagnostic"):goto_prev({ severity = vim.diagnostic.severity.ERROR })
+end)
+keymap.set("n", "]D", function()
+	require("lspsaga.diagnostic"):goto_next({ severity = vim.diagnostic.severity.ERROR })
+end)
 
 -- enable keybinds only for when lsp server available
 local on_attach = function(client, bufnr)
 	-- keybind options
-	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+	-- vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 	-- Mapping
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", bufopts)
-	keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-	keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-	keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
-	keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
-	keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
-	keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, bufopts)
-	keymap.set("n", "<space>o", "<cmd>Lspsaga outline<CR>", bufopts)
-	keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
-	keymap.set("n", "<space>wl", function()
-		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-	end, bufopts)
-	keymap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
-	keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
-	keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
-	keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-	keymap.set("n", "<space>f", function()
+	keymap.set("n", "gD", "<cmd>Lspsaga goto_definition<CR>", bufopts)
+	keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", bufopts)
+	keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", bufopts)
+	-- keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
+	keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", bufopts)
+	-- keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
+	-- keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, bufopts)
+	keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>", bufopts)
+	-- keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
+	-- keymap.set("n", "<leader>wl", function()
+	-- 	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+	-- end, bufopts)
+	-- keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, bufopts)
+	keymap.set("n", "rn", "<cmd>Lspsaga rename<CR>", bufopts)
+	-- keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
+	keymap.set({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>", bufopts)
+	-- keymap.set("n", "gr", vim.lfp.buf.references, bufopts)
+	keymap.set("n", "<leader>f", function()
 		vim.lsp.buf.format({ async = true })
 	end, bufopts)
 
@@ -133,6 +141,12 @@ lspconfig["volar"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
+
+-- configure eslint
+-- lspconfig["eslint"].setup({
+-- 	capabilities = capabilities,
+-- 	on_attach = on_attach,
+-- })
 
 -- configure lua server (with special settings)
 lspconfig["sumneko_lua"].setup({

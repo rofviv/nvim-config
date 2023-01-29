@@ -129,6 +129,15 @@ return packer.startup(function(use)
 	-- golang
 	use("fatih/vim-go")
 
+	-- vue
+	-- use("posva/vim-vue")
+
+	-- bufferline tabs
+	use("akinsho/bufferline.nvim")
+
+	-- colorized
+	use("norcalli/nvim-colorizer.lua")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
