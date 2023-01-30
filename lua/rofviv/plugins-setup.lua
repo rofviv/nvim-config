@@ -42,15 +42,16 @@ return packer.startup(function(use)
 	use("numtoStr/Comment.nvim")
 
 	-- icons
-	-- use("kyazdani42/nvim-web-devicons")
+	use("kyazdani42/nvim-web-devicons")
 
 	-- file explorer
-	use({
-		"nvim-tree/nvim-tree.lua",
-		requires = {
-			"nvim-tree/nvim-web-devicons", -- optional, for file icons
-		},
-	})
+	use("nvim-tree/nvim-tree.lua")
+	-- use({
+	-- 	"nvim-tree/nvim-tree.lua",
+	-- 	requires = {
+	-- 		"nvim-tree/nvim-web-devicons", -- optional, for file icons
+	-- 	},
+	-- })
 
 	-- statusline
 	use("nvim-lualine/lualine.nvim")
@@ -137,6 +138,16 @@ return packer.startup(function(use)
 
 	-- colorized
 	use("norcalli/nvim-colorizer.lua")
+
+	-- markdown preview
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		setup = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	})
 
 	if packer_bootstrap then
 		require("packer").sync()
