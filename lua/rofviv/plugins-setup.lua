@@ -142,6 +142,9 @@ return packer.startup(function(use)
 	-- comments highliht
 	use("folke/todo-comments.nvim")
 
+	-- minimap
+	use("wfxr/minimap.vim")
+
 	-- markdown preview
 	use({
 		"iamcco/markdown-preview.nvim",

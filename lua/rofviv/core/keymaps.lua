@@ -64,3 +64,6 @@ keymap.set({ "n", "t" }, "<C-.>", "<cmd>Lspsaga term_toggle<CR>")
 -- bufferline
 keymap.set("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", {})
 keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", {})
+
+-- minimap
+keymap.set("n", "<leader>m", "<cmd>MinimapToggle<CR>")
