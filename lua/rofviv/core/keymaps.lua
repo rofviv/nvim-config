@@ -47,6 +47,9 @@ keymap.set("n", "<leader>gl", "<cmd>Gitsigns toggle_current_line_blame<cr>")
 --telescope flutter
 keymap.set("n", "<leader>fc", "<cmd>Telescope flutter commands<cr>") -- open comands flutter
 
+--telescope todo-comments
+keymap.set("n", "<leader>tc", "<cmd>TodoTelescope<cr>") -- open list todos
+
 -- dap
 keymap.set("n", "<leader>B", "<cmd>lua require'dap'.toggle_breakpoint()<CR>")
 keymap.set("n", "<leader>C", "<cmd>lua require'dap'.continue()<CR>")

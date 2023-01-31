@@ -139,6 +139,9 @@ return packer.startup(function(use)
 	-- colorized
 	use("norcalli/nvim-colorizer.lua")
 
+	-- comments highliht
+	use("folke/todo-comments.nvim")
+
 	-- markdown preview
 	use({
 		"iamcco/markdown-preview.nvim",
