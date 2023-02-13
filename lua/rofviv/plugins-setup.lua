@@ -42,7 +42,8 @@ return packer.startup(function(use)
 	use("numtoStr/Comment.nvim")
 
 	-- icons
-	use("kyazdani42/nvim-web-devicons")
+	-- use("kyazdani42/nvim-web-devicons")
+	use("nvim-tree/nvim-web-devicons")
 
 	-- file explorer
 	use("nvim-tree/nvim-tree.lua")

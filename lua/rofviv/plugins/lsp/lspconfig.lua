@@ -149,7 +149,8 @@ lspconfig["volar"].setup({
 -- })
 
 -- configure lua server (with special settings)
-lspconfig["sumneko_lua"].setup({
+-- lspconfig["sumneko_lua"].setup({
+lspconfig["lua_ls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = { -- custom settings for lua
@@ -207,7 +208,7 @@ flutter.setup({
 	-- flutter_lookup_cmd = nil, -- example "dirname $(which flutter)" or "asdf where flutter"
 	fvm = false, -- takes priority over path, uses <workspace>/.fvm/flutter_sdk if enabled
 	widget_guides = {
-		enabled = true,
+		enabled = false,
 	},
 	closing_tags = {
 		-- highlight = "ErrorMsg", -- highlight for the closing tag
@@ -245,7 +246,7 @@ flutter.setup({
 		-- see the link below for details on each option:
 		-- https://github.com/dart-lang/sdk/blob/master/pkg/analysis_server/tool/lsp_spec/README.md#client-workspace-configuration
 		settings = {
-			showTodos = true,
+			showTodos = false,
 			completeFunctionCalls = true,
 			analysisExcludedFolders = {},
 			renameFilesWithClasses = "prompt", -- "always"
